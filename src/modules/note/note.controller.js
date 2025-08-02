@@ -1,0 +1,15 @@
+import { Router } from "express";
+import * as noteService from "./note.service.js";
+const router = Router();
+router.post("/", noteService.createNote);
+router.patch("/all", noteService.updateAll);
+router.patch("/:noteId", noteService.UpdateNote);
+router.patch("/replace/:noteId", noteService.replaceNote);
+router.delete("/:noteId", noteService.deleteNote);
+router.get("/paginate-sort",noteService.paginateSortNotes);
+router.get("/note-by-content", noteService.getNoteByContent);
+router.get("/note-with-user", noteService.getNoteWithUser);
+router.get("/aggregate", noteService.getNoteByTitle);
+router.get("/:noteId",noteService.getNote);
+router.delete("/", noteService.deleteAllNotes);
+export default router;
